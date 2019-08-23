@@ -1,3 +1,7 @@
 .DS_Store
 __pycache__/
 *.py[cod]
+mecab-as-kkc/matrix.def
+mecab-as-kkc/*.bin
+mecab-as-kkc/*.dic
+mecab-as-kkc/*.csv
