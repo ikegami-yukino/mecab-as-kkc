@@ -6,7 +6,7 @@ For using MeCab as a Kana-Kanji converter (KKC), this repository provides script
 
 - Git
 - MeCab
- - mecab and mecab-config
+  - mecab and mecab-config
 - Python 3
 
 ## Preparetion
@@ -67,6 +67,6 @@ WTFPL
 We thank for MeCab and Mozc since this repository rely on them.
 
 - [MeCab](https://taku910.github.io/mecab/)
- - T. Kudo, H. Komatsu, T. Hanaoka, A. Mukai, Y. Tabata, K. Yamamoto, Y. Matsumoto. 2004. Applying Conditional Random Fields to Japanese Morphological Analysis. In Proceedings of the EMNLP 2004, pp 230-237.
+  - T. Kudo, H. Komatsu, T. Hanaoka, A. Mukai, Y. Tabata, K. Yamamoto, Y. Matsumoto. 2004. Applying Conditional Random Fields to Japanese Morphological Analysis. In Proceedings of the EMNLP 2004, pp 230-237.
 - [Mozc](https://github.com/google/mozc)
- - T. Kudo, T. Hanaoka, J. Mukai, Y. Tabata, H. Komatsu. 2011. Efficient dictionary and language model compression for input method editors. In Proceedings of the Workshop on Advances in Text Input Methods (WTIM 2011), pp 19-25.
+  - T. Kudo, T. Hanaoka, J. Mukai, Y. Tabata, H. Komatsu. 2011. Efficient dictionary and language model compression for input method editors. In Proceedings of the Workshop on Advances in Text Input Methods (WTIM 2011), pp 19-25.
