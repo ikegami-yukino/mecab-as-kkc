@@ -31,14 +31,26 @@ or
 
 ```
 $ cp -r maceb-as-kkc <target directory>/maceb-as-kkc
-$ rm <target directory>/maceb-as-kkc/lex.csv
-$ rm <target directory>/maceb-as-kkc/matrix.def
+```
+
+If you do not want to add the entry to dictionary, we recommend executing the following commands.
+These save the disk usage (about 160MB).
+
+```
+$ rm `mecab-config --dicdir`/mecab-as-kkc/lex.csv
+$ rm `mecab-config --dicdir`/mecab-as-kkc/matrix.def
 ```
 
 ## Uninstall
 
 ```
 $ make uninstall
+```
+
+or
+
+```
+$ rm -r <target directory>/maceb-as-kkc
 ```
 
 ## Example of usage

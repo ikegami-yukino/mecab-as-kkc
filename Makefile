@@ -16,8 +16,6 @@ build: update_mozc
 
 install:
 	cp -r mecab-as-kkc $(MECAB_DIC_DIR)/mecab-as-kkc
-	rm $(MECAB_DIC_DIR)/mecab-as-kkc/lex.csv
-	rm $(MECAB_DIC_DIR)/mecab-as-kkc/matrix.def
 
 uninstall:
 	rm -rf $(MECAB_DIC_DIR)/mecab-as-kkc
