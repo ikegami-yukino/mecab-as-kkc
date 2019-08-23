@@ -1,0 +1,7 @@
+dictionary-charset = utf-8
+cost-factor = 800
+bos-feature = BOS/EOS
+output-format-type = kkc
+node-format-kkc = %H
+unk-format-kkc = %M
+eos-format-kkc  = \n
