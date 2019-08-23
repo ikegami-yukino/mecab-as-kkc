@@ -6,7 +6,7 @@ For using MeCab as a Kana-Kanji converter (KKC), this repository provides script
 
 - Git
 - MeCab
-  - mecab and mecab-config
+  - mecab, mecab-config and mecab-dict-index
 - Python 3
 
 ## Preparetion
