@@ -64,6 +64,55 @@ $ echo ここではきものをぬぎます | mecab -d `mecab-config --dicdir`/m
 ここで履物を脱ぎます
 ```
 
+## How to Add new entry to this dictionary
+
+### Formating
+In lex.csv, we can add entry as 1 line 1 entry.
+The line formatting of lex.csv is as follows:
+
+```
+めかぶ,670,1250,4000,和布蕪
+```
+
+From the left, reading (Hiragana), left-cotext ID, right-context ID, cost, word are corresponded to.
+In this case, the reading "めかぶ" is converted to the word "和布蕪".
+
+### Determine context IDs
+left-cotext ID and right-context ID are chose from `mozc/src/data/dictionary_oss/id.def` file.
+
+Usually, the following context IDs are used:
+```
+1837 名詞,サ変接続,*,*,*,*,*
+1847 名詞,一般,*,*,*,*,*
+1895 名詞,代名詞,一般,*,*,*,*
+1916 名詞,固有名詞,一般,*,*,*,*
+1917 名詞,固有名詞,人名,一般,*,*,*
+1918 名詞,固有名詞,人名,名,*,*,*
+1919 名詞,固有名詞,人名,姓,*,*,*
+1920 名詞,固有名詞,地域,一般,*,*,*
+1921 名詞,固有名詞,地域,一般,*,*,府名
+1922 名詞,固有名詞,地域,一般,*,*,県名
+1923 名詞,固有名詞,地域,一般,*,*,都名
+1924 名詞,固有名詞,地域,国,*,*,*
+1925 名詞,固有名詞,組織,*,*,*,*
+```
+
+NOTE that choosing appropriate context ID needs Japanese language domain knowledge.
+
+### Tuning cost
+How to tuning cost value is as follows:
+
+1. Give 4000 point cost to the new entry
+2. Recompile dictionary by the following command:
+```
+$ `mecab-config --libexecdir`/mecab-dict-index -d mecab-as-kkc -o mecab-as-kkc
+```
+3. Check result:
+```
+$ echo めかぶ | mecab -d `mecab-config --dicdir`/maceb-as-kkc`
+```
+4. If the new word "和布蕪" is not best candidate, then cost value of new entry should be decreased gradually
+
 ## Limitation
 
 Currently, this repository does not support Kana-Symbol conversion and Kana-Emoji conversion because we do not know how to determine their appropriate costs.
