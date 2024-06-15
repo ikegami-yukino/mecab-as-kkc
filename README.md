@@ -7,9 +7,10 @@ For using MeCab as a Kana-Kanji converter (KKC), this repository provides script
 - Git
 - MeCab
   - mecab, mecab-config and mecab-dict-index
+  - one dictionary should be installed (Example: ipadic)
 - Python 3
 
-## Preparetion
+## Preparation
 
 ```
 $ git clone --depth 1 https://github.com/ikegami-yukino/mecab-as-kkc.git
@@ -33,7 +34,7 @@ or
 $ cp -r maceb-as-kkc <target directory>/maceb-as-kkc
 ```
 
-If you do not want to add the entry to dictionary, we recommend executing the following commands.
+If you do not want to add the dictionary entry, we recommend executing the following commands.
 These save the disk usage (about 160MB).
 
 ```
@@ -56,7 +57,7 @@ $ rm -r <target directory>/maceb-as-kkc
 ## Example of usage
 
 ```
-$ echo ここではきものをぬぎます | mecab -d `mecab-config --dicdir`/maceb-as-kkc -N 5
+$ echo ここではきものをぬぎます | mecab -d `mecab-config --dicdir`/mecab-as-kkc -N 5
 ここでは着物を脱ぎます
 ここでは着物を脱ぎます
 ここではきものを脱ぎます
@@ -66,19 +67,19 @@ $ echo ここではきものをぬぎます | mecab -d `mecab-config --dicdir`/m
 
 ## How to Add new entry to this dictionary
 
-### Formating
-In lex.csv, we can add entry as 1 line 1 entry.
+### Formatting
+In lex.csv, we can add an entry as 1 line 1 entry.
 The line formatting of lex.csv is as follows:
 
 ```
 めかぶ,670,1250,4000,和布蕪
 ```
 
-From the left, reading (Hiragana), left-cotext ID, right-context ID, cost, word are corresponded to.
+From the left, reading (Hiragana), left-cotext ID, right-context ID, cost, and word are corresponded to.
 In this case, the reading "めかぶ" is converted to the word "和布蕪".
 
 ### Determine context IDs
-left-cotext ID and right-context ID are chose from `mozc/src/data/dictionary_oss/id.def` file.
+left-cotext ID and right-context ID are chosen from `mozc`/src/data/dictionary_oss/id.def` file.
 
 Usually, the following context IDs are used:
 ```
@@ -97,13 +98,12 @@ Usually, the following context IDs are used:
 1925 名詞,固有名詞,組織,*,*,*,*
 ```
 
-NOTE that choosing appropriate context ID needs Japanese language domain knowledge.
+NOTE that choosing the appropriate context ID needs Japanese language domain knowledge.
 
 ### Tuning cost
-How to tuning cost value is as follows:
-
-1. Give 4000 point cost to the new entry
-2. Recompile dictionary by the following command:
+How to tune cost value is as follows:
+Give 4000 points cost to the new entry
+2. Recompile the dictionary with the following command:
 ```
 $ `mecab-config --libexecdir`/mecab-dict-index -d mecab-as-kkc -o mecab-as-kkc
 ```
@@ -111,7 +111,7 @@ $ `mecab-config --libexecdir`/mecab-dict-index -d mecab-as-kkc -o mecab-as-kkc
 ```
 $ echo めかぶ | mecab -d `mecab-config --dicdir`/maceb-as-kkc`
 ```
-4. If the new word "和布蕪" is not best candidate, then cost value of new entry should be decreased gradually
+4. If the new word "和布蕪" is not the best candidate, then the cost value of the new entry should be decreased gradually
 
 ## Limitation
 
@@ -123,9 +123,8 @@ Contributions are welcome.
 
 WTFPL
 
-## Acknowledgements
-
-We thank for MeCab and Mozc since this repository rely on them.
+## Acknowledgments
+We thank MeCab and Mozc since this repository relies on them.
 
 - [MeCab](https://taku910.github.io/mecab/)
   - T. Kudo, H. Komatsu, T. Hanaoka, A. Mukai, Y. Tabata, K. Yamamoto, Y. Matsumoto. 2004. Applying Conditional Random Fields to Japanese Morphological Analysis. In Proceedings of the EMNLP 2004, pp 230-237.

@@ -23,7 +23,7 @@ build: update_mozc $(MATRIX_DEF) $(LEX_CSV)
 
 install:
 	@if [ ! -d ${MECAB_DIC_DIR}/mecab-as-kkc ] ; then\
-		mkdir mecab-as-kkc $(MECAB_DIC_DIR)/mecab-as-kkc;\
+		mkdir $(MECAB_DIC_DIR)/mecab-as-kkc;\
 	fi
 	install mecab-as-kkc/* $(MECAB_DIC_DIR)/mecab-as-kkc/
 
