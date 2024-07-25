@@ -102,7 +102,7 @@ NOTE that choosing the appropriate context ID needs Japanese language domain kno
 
 ### Tuning cost
 How to tune cost value is as follows:
-Give 4000 points cost to the new entry
+1. Give 4000 points cost to the new entry
 2. Recompile the dictionary with the following command:
 ```
 $ `mecab-config --libexecdir`/mecab-dict-index -d mecab-as-kkc -o mecab-as-kkc
